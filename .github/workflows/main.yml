@@ -33,9 +33,13 @@ jobs:
         java-version: ${{ secrets.JAVA_VERSION }}
 
     - name: Grant execute permission for gradlew
-      run: chmod +x ./hr_proj/gradlew
+      run: 
+        cd ./hr_proj/
+        chmod +x ./gradlew
       shell: bash
       
     - name: Build with Gradle
-      run: ./hr_proj/gradlew clean build -x test
+      run:
+        cd ./hr_proj/
+        ./gradlew clean build -x test
       shell: bash
