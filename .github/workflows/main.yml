@@ -17,6 +17,8 @@ jobs:
       contents: read
       packages: write
 
+    environment: deploy # choosing repository's sercret environment.
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
