@@ -47,6 +47,9 @@ jobs:
     - name: Build with Gradle
       run: |
         cd ./hr_proj/
+        pwd
+        cd ~/
+        pwd
         ./gradlew clean build -x test
       shell: bash
 
