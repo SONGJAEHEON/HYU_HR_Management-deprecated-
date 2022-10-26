@@ -66,7 +66,9 @@ jobs:
         mkdir -p before-deploy
         ls ./
         ls ./hr_proj/
-        cp /hr_proj/scripts/*.sh before-deploy/
+        cd ./hr_proj/scripts
+        cp *.sh before-deploy/
+        cd /
         cp appspec.yml before-deploy/
         cp /hr_proj/build/libs/*.jar before-deploy/
         cd before-deploy && zip -r before-deploy *
