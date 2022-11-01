@@ -67,9 +67,11 @@ public class ReceiptsApiControllerTest {
         // given
         String title = "title";
         String uploader = "abc@de.com";
+        String testUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Amber_Mountain_chameleon_(Calumma_amber)_male_Montagne_d%E2%80%99Ambre_2.jpg/120px-Amber_Mountain_chameleon_(Calumma_amber)_male_Montagne_d%E2%80%99Ambre_2.jpg";
         ReceiptsSaveRequestDto requestDto = ReceiptsSaveRequestDto.builder()
                 .title(title)
                 .uploader(uploader)
+                .url(testUrl)
                 .build();
         String url = "http://localhost:" + port + "/api/v1/receipt-save";
 
@@ -87,6 +89,7 @@ public class ReceiptsApiControllerTest {
         List<Receipts> all = receiptsRepository.findAll();
         Assertions.assertThat(all.get(0).getTitle()).isEqualTo(title);
         Assertions.assertThat(all.get(0).getUploader()).isEqualTo(uploader);
+        Assertions.assertThat(all.get(0).getUrl()).isEqualTo(testUrl);
     }
 
     @Test
@@ -96,15 +99,18 @@ public class ReceiptsApiControllerTest {
         Receipts savedReceipts = receiptsRepository.save(Receipts.builder()
                 .title("receipt01")
                 .uploader("abc@de.com")
+                .url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Amber_Mountain_chameleon_(Calumma_amber)_male_Montagne_d%E2%80%99Ambre_2.jpg/120px-Amber_Mountain_chameleon_(Calumma_amber)_male_Montagne_d%E2%80%99Ambre_2.jpg")
                 .build());
 
         Long updateId = savedReceipts.getId();
         String expectedTitle = "receipt02";
         String expectedUploader = "fgh@ij.com";
+        String expectedUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wild_shortbeak_echidna.jpg/120px-Wild_shortbeak_echidna.jpg";
 
         ReceiptsUpdateRequestDto requestDto = ReceiptsUpdateRequestDto.builder()
                 .title(expectedTitle)
                 .uploader(expectedUploader)
+                .url(expectedUrl)
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/receipts/" + updateId;
@@ -124,5 +130,6 @@ public class ReceiptsApiControllerTest {
         List<Receipts> all = receiptsRepository.findAll();
         Assertions.assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         Assertions.assertThat(all.get(0).getUploader()).isEqualTo(expectedUploader);
+        Assertions.assertThat(all.get(0).getUrl()).isEqualTo(expectedUrl);
     }
 }

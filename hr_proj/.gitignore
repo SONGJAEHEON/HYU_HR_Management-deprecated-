@@ -43,4 +43,5 @@ out/
 .gradle
 .idea
 application-oauth.properties
+application.yaml
 
