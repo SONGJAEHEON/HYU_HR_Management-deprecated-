@@ -121,6 +121,7 @@ node {
 
 // npm build
 task npmBuild(type: NpmTask) {
+	println "${project.projectDir}"
 	workingDir = file("${project.projectDir}/src/main/frontend")
 	args = ["run", "build"]
 }
