@@ -1,12 +1,14 @@
 package com.hyhr.hr_proj;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Date;
 
-@RestController
-public class TestController {
+//@RestController
+@Controller
+public class WebController {
 
 	@GetMapping("/")
 	public String test() {
@@ -14,6 +16,7 @@ public class TestController {
 	}
 
     @GetMapping("/api/hello")
+    @ResponseBody
     public String hello() {
         return new Date() + "\n";
     }

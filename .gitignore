@@ -38,9 +38,10 @@ out/
 
 ### node
 /node_modules
+yarn.lock
 
 # backend
 .gradle
 .idea
 application-oauth.properties
-
+application.yaml

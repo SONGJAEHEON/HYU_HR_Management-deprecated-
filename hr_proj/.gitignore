@@ -38,6 +38,7 @@ out/
 
 ### node
 /node_modules
+yarn.lock
 
 # backend
 .gradle
