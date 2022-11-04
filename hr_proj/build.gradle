@@ -114,10 +114,10 @@ node {
 }
 
 // npm install
-task appNpmInstall(type: NpmTask) {
-	workingDir = file("${project.projectDir}/src/main/frontend")
-	args = ["install"]
-}
+//task appNpmInstall(type: NpmTask) {
+//	workingDir = file("${project.projectDir}/src/main/frontend")
+//	args = ["install"]
+//}
 
 // npm build
 task npmBuild(type: NpmTask) {
@@ -131,6 +131,6 @@ task copyWebApp(type: Copy) {
 	into 'build/resources/main/static/'
 }
 
-npmBuild.dependsOn appNpmInstall
+// npmBuild.dependsOn appNpmInstall
 copyWebApp.dependsOn npmBuild
 compileJava.dependsOn copyWebApp
