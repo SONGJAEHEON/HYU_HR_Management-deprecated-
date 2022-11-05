@@ -48,6 +48,7 @@ jobs:
         npm install
         CI=false npm run build
         cd ../../../
+        mkdir -p ./build/resources/main/static
         cp -r ./src/main/frontend/build ./build/resources/main/static
       shell: bash
 
