@@ -53,57 +53,57 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// frontend build
+// frontend build for "Local Compile"
 
-node {	// https://github.com/node-gradle/gradle-node-plugin
-	download = false
-
-	version = "16.14.0"
-
-	npmVersion = ""
-
-	yarnVersion = ""
-
-	distBaseUrl = "https://nodejs.org/dist"
-
-	allowInsecureProtocol = null
-
-	npmInstallCommand = "install"
-
-	workDir = file("${project.projectDir}/.gradle/nodejs")
-
-	npmWorkDir = file("${project.projectDir}/.gradle/npm")
-
-	yarnWorkDir = file("${project.projectDir}/.gradle/yarn")
-
-	nodeProjectDir = file("${project.projectDir}")
-
-	nodeProxySettings = ProxySettings.SMART
-}
-
-//println  "Root project:   ${project.rootProject}";
-//println  "  rootDir:      ${project.rootDir}"
-//println  "  projectDir:   ${project.projectDir}";
-//println  "  project dir:  ${System.getProperty("user.dir")}";
-
-// npm install
-task appNpmInstall(type: NpmTask) {
-	workingDir = file("${project.projectDir}/src/main/frontend")
-	args = ["install"]
-}
-
-// npm build
-task npmBuild(type: NpmTask) {
-	workingDir = file("${project.projectDir}/src/main/frontend")
-	args = ["run", "build"]
-}
-
-// 빌드된 결과 이동
-task copyWebApp(type: Copy) {
-	from "src/main/frontend/build"
-	into 'build/resources/main/static/'
-}
-
- npmBuild.dependsOn appNpmInstall
-copyWebApp.dependsOn npmBuild
-compileJava.dependsOn copyWebApp
+//node {	// https://github.com/node-gradle/gradle-node-plugin
+//	download = false
+//
+//	version = "16.14.0"
+//
+//	npmVersion = ""
+//
+//	yarnVersion = ""
+//
+//	distBaseUrl = "https://nodejs.org/dist"
+//
+//	allowInsecureProtocol = null
+//
+//	npmInstallCommand = "install"
+//
+//	workDir = file("${project.projectDir}/.gradle/nodejs")
+//
+//	npmWorkDir = file("${project.projectDir}/.gradle/npm")
+//
+//	yarnWorkDir = file("${project.projectDir}/.gradle/yarn")
+//
+//	nodeProjectDir = file("${project.projectDir}")
+//
+//	nodeProxySettings = ProxySettings.SMART
+//}
+//
+////println  "Root project:   ${project.rootProject}";
+////println  "  rootDir:      ${project.rootDir}"
+////println  "  projectDir:   ${project.projectDir}";
+////println  "  project dir:  ${System.getProperty("user.dir")}";
+//
+//// npm install
+//task appNpmInstall(type: NpmTask) {
+//	workingDir = file("${project.projectDir}/src/main/frontend")
+//	args = ["install"]
+//}
+//
+//// npm build
+//task npmBuild(type: NpmTask) {
+//	workingDir = file("${project.projectDir}/src/main/frontend")
+//	args = ["run", "build"]
+//}
+//
+//// 빌드된 결과 이동
+//task copyWebApp(type: Copy) {
+//	from "src/main/frontend/build"
+//	into 'build/resources/main/static/'
+//}
+//
+//npmBuild.dependsOn appNpmInstall
+//copyWebApp.dependsOn npmBuild
+//compileJava.dependsOn copyWebApp
