@@ -48,7 +48,7 @@ jobs:
         npm install
         CI=false npm run build
         cd ../../../
-        cp -r ./src/main/frontend/build/ /build/resources/main/static/
+        cp -r ./src/main/frontend/build/ ./build/resources/main/static/
       shell: bash
 
     - name: Grant execute permission for gradlew
