@@ -48,6 +48,7 @@ jobs:
         npm install
         npm run build
         cp ./build ../../../build/resources/main/static/
+      shell: bash
 
     - name: Grant execute permission for gradlew
       run: |
