@@ -47,7 +47,8 @@ jobs:
         cd ./hr_proj/src/main/frontend
         npm install
         npm run build
-        cp ./build ../../../build/resources/main/static/
+        cd ../../../
+        cp ./src/main/frontend/build/ /build/resources/main/static/
       shell: bash
 
     - name: Grant execute permission for gradlew
