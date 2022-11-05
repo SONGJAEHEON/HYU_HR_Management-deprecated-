@@ -45,10 +45,8 @@ jobs:
     - name: Build React
       run: |
         cd ./hr_proj/src/main/frontend
-        rm -rf node_modules
-        rm -rf package-lock.json
         npm install
-        npm run build
+        CI=false npm run build
         cd ../../../
         cp ./src/main/frontend/build/ /build/resources/main/static/
       shell: bash
