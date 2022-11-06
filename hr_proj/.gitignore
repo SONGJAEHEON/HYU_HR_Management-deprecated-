@@ -45,4 +45,5 @@ yarn.lock
 .idea
 application-oauth.properties
 application.yaml
+/src/main/resources/static
 
