@@ -19,7 +19,7 @@ http://www.hyhr.org
 - 완료
     - 도메인 관련 작업 (메인 페이지 연결)
     - EC2, RDS, S3 설정
-    - CI/CD
+    - CI/CD (through Github Actions, AWS S3)
     - Beans(Oauth User, receipts, blacklist)
 - 진행 중(Work-In-Progress)
     - 프론트엔드, 백엔드 연결
