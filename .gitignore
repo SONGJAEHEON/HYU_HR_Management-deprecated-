@@ -47,5 +47,5 @@ application-oauth.properties
 application.yaml
 
 # for push (tmp)
-/.github/
-appspec.yml
+# /.github/
+# appspec.yml
